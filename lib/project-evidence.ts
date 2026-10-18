@@ -170,7 +170,7 @@ export const evidence: Record<string, ProjectEvidence> = {
     demonstrated: copy('原稿另报告玩具组装决策时间减少约三分之一、正确率提高 20%；该页没有进一步说明这两个比较的完整基线。参与者作品与反馈也记录在同页。', 'The portfolio also reports roughly one-third less toy-assembly decision time and 20% higher correctness, without fully specifying those comparison baselines. Participant work and feedback appear on the same page.'),
     limits: copy('以上数值来自原作品集。该摘要未列出样本量、完整分组条件和统计检验，因此仅作为所述任务中的结果呈现，不外推为所有用户或场景的普遍效果。', 'The figures above are reported in the original portfolio. Its summary does not specify sample size, full group conditions, or statistical tests, so these findings are limited to the described tasks rather than generalized to all users or contexts.'),
     resultPages: [26],
-    publication: copy('论文已被 CHI 2026 收录。相关团队背景：RTD 触觉图形设备于 2025 年 6 月在联合国日内瓦办事处展出；该展览记录不列入我的个人贡献。', 'The paper was accepted to CHI 2026. Related team context: the team’s RTD tactile-graphics device was exhibited at the United Nations Office at Geneva in June 2025; that exhibition is not included in my individual contributions.'),
+    publication: copy('CHI 2026 论文已收录，论文链接见下方。原作品集将 TacChat 的 RTD 触觉图形设备展览记录为同一项目成果：设备于 2025 年 6 月 16–21 日在联合国日内瓦办事处展出。作品集标注的项目时间为 2025 年 7–10 月，晚于展览日期；原稿未解释这段时间关系。', 'The CHI 2026 paper was accepted; see the link below. The original portfolio records the TacChat RTD tactile-graphics exhibition as part of the same project: the device was shown at the United Nations Office at Geneva, June 16–21, 2025. The project period is listed as July–October 2025, after the exhibition; the portfolio does not explain the timeline.'),
   },
 };
 

@@ -46,7 +46,7 @@ const projectRecords: Project[] = [
     summary: 'A research system that supports blind and low-vision users in authoring, converting, modifying, and sharing tactile graphics instead of remaining passive recipients.',
     challenge: 'Refreshable tactile graphics often focus on access to information, but far less attention is given to BLV users as creators and communicators of tactile content.',
     approach: 'My contributions included system workflow design, experimental design, and data analysis. The research evaluated navigation and toy-assembly tasks alongside qualitative experience measures.',
-    outcome: 'TacChat connects tactile authoring, revision, and sharing in a three-stage workflow. The team evaluated navigation, toy assembly, and user experience; my contributions focused on system workflow, experimental design, and data analysis.',
+    outcome: 'TacChat connects tactile authoring, revision, and sharing in a three-stage workflow. The team evaluated navigation, toy assembly, and user experience. I am a co-first author on the CHI 2026 paper; my contributions included workflow design, experimental design and coordination, data analysis, and paper writing.',
   },
 ];
 
