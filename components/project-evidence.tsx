@@ -1,6 +1,5 @@
 import { sourcePageUrl, type Bilingual, type ProjectEvidence } from '@/lib/project-evidence';
 import type { Locale } from '@/lib/i18n';
-import Image from 'next/image';
 
 function SourceLinks({ pages, locale, record }: { pages: number[]; locale: Locale; record: ProjectEvidence }) {
   return <p className="evidence-source"><span>{record.source?.label[locale] ?? (locale === 'zh' ? '原作品集' : 'Original portfolio')}</span>{pages.map(page =>
@@ -30,7 +29,7 @@ export function ProjectDecisions({ record, locale }: { record: ProjectEvidence; 
 export function ResearchArchive({ record, locale }: { record: ProjectEvidence; locale: Locale }) {
   return <details className="research-archive"><summary>{locale === 'zh' ? '展开研究与过程原始图版' : 'Open the original research and process pages'}<span aria-hidden="true">↗</span></summary>
     <div className="research-archive-pages">{record.archivePages.map(page => <figure key={page}>
-      <a href={sourcePageUrl(page, record)} target="_blank" rel="noreferrer"><Image src={sourcePageUrl(page, record)} unoptimized loading="lazy" width={record.source?.width ?? 1250} height={record.source?.height ?? 625} alt={locale === 'zh' ? `项目材料第 ${page} 页，研究与设计过程` : `Source page ${page}, research and design process`} /></a>
+      <a href={sourcePageUrl(page, record)} target="_blank" rel="noreferrer"><img src={sourcePageUrl(page, record)} loading="lazy" width={record.source?.width ?? 1250} height={record.source?.height ?? 625} alt={locale === 'zh' ? `项目材料第 ${page} 页，研究与设计过程` : `Source page ${page}, research and design process`} /></a>
       <figcaption>{locale === 'zh' ? `原作品集 p. ${page} · 点击查看原图，图中文字保留原文` : `Original portfolio p. ${page} · Open full image, original wording retained`}</figcaption>
     </figure>)}</div>
   </details>;

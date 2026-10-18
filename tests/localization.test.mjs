@@ -16,10 +16,10 @@ test('Chinese is the default and English remains an explicit choice', () => {
 });
 
 test('internal links retain the language and destination anchor', () => {
-  assert.equal(localizedHref('/#work', 'zh'), '/?lang=zh#work');
-  assert.equal(localizedHref('/#about', 'en'), '/?lang=en#about');
-  assert.equal(localizedHref('/project/purelink', 'zh'), '/project/purelink?lang=zh');
-  assert.equal(localizedHref('/', 'en'), '/?lang=en');
+  assert.equal(localizedHref('/#work', 'zh'), '/#work');
+  assert.equal(localizedHref('/#about', 'en'), '/en/#about');
+  assert.equal(localizedHref('/project/purelink', 'zh'), '/project/purelink');
+  assert.equal(localizedHref('/', 'en'), '/en/');
 });
 
 test('every project and interface string has a Chinese equivalent', () => {

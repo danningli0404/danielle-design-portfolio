@@ -7,16 +7,18 @@ export function getLocale(params: SearchParams = {}): Locale {
 
 export function localizedHref(path: string, locale: Locale) {
   const [pathname, hash] = path.split('#');
-  return `${pathname || '/'}?lang=${locale}${hash ? `#${hash}` : ''}`;
+  const base = process.env.NEXT_PUBLIC_PAGES_BASE_PATH ?? '';
+  return `${base}${locale === 'en' ? '/en' : ''}${pathname || '/'}${hash ? `#${hash}` : ''}`;
 }
 
 export const homeCopy = {
   en: {
-    homeLabel: 'Danielle Li home', status: 'Design engineering', place: 'Brown × RISD · Providence',
+    homeLabel: 'Danning Li home', status: 'Design engineering', place: 'Brown × RISD · Providence',
     navigation: 'Primary navigation', work: 'Work', experiments: 'Experiments', about: 'About', contact: 'Contact',
     eyebrow: 'Calm & Control · Product design & making', intro: 'Making for', introEm: 'everyday life.',
     introCopy: 'I work on small everyday difficulties, helping people feel more in control and more at ease.', introDetail: 'Brown × RISD Design Engineering. Graduating June 2027. Physical products, fabrication, and hands-on prototyping.', enter: 'Explore the work',
     selected: 'Selected works', arrange: 'Drag to arrange · Click to explore', reset: 'Reset arrangement ↺',
+    previousWork: 'Previous Work', currentCoursework: 'Current Graduate Coursework',
     studio: 'Making notes / Summer 2026', unfinished: 'Materials,', unfinishedEm: 'forms & trials.',
     studioNote: 'Two summer team projects: separating ice from a drink, and bringing beach essentials together. Research, sketches, and physical prototypes make the design decisions visible.', viewExperiment: 'Explore project ↗',
     aboutTitle: 'Calm & Control.', aboutEm: 'In everyday details.', aboutLabel: 'My approach',
@@ -33,6 +35,7 @@ export const homeCopy = {
     eyebrow: 'Calm & Control · 产品设计与制作', intro: '用实体制作，', introEm: '回应日常难题。',
     introCopy: '关注不同人群的日常小困扰，帮助使用者保有掌控感，获得平静。', introDetail: 'Brown × RISD 设计工程硕士，预计 2027 年 6 月毕业。关注实体产品、制造方法与原型迭代。', enter: '看看我的作品',
     selected: '精选作品', arrange: '拖动自由摆放 · 点击查看项目', reset: '恢复初始摆放 ↺',
+    previousWork: '过往作品', currentCoursework: '在读期间学生作业',
     studio: '制作记录 / 2026 夏', unfinished: '制作与', unfinishedEm: '原型试验。',
     studioNote: '两个暑期团队项目：让冰饮不被融水稀释，让海滩用品更有序。用调研、草图与实体模型，记录每一步设计判断。', viewExperiment: '查看项目 ↗',
     aboutTitle: 'Calm & Control，', aboutEm: '从生活细节开始。', aboutLabel: '我的设计方法',
