@@ -9,6 +9,7 @@ import { detailCopy, getLocale, localizedHref, type SearchParams } from '@/lib/i
 import { localizeProject } from '@/lib/projects-zh';
 import { evidence } from '@/lib/project-evidence';
 import { ProjectContext, ProjectDecisions, ProjectValidation, ResearchArchive } from '@/components/project-evidence';
+import { ProjectNarrative } from '@/components/project-narrative';
 
 type PageProps = { params: Promise<{ slug: string }>; searchParams: Promise<SearchParams> };
 
@@ -43,6 +44,7 @@ export default async function ProjectPage({ params, searchParams }: PageProps) {
       {record && <ProjectContext record={record} locale={locale} />}
       <nav className="chapter-nav" aria-label={t.chapters}><a href="#question">{t.question}</a><a href="#process">{t.process}</a><a href="#reflection">{project.experimental ? t.progress : t.outcome}</a><span>{project.experimental ? t.notes : t.caseStudy} / {project.year}</span></nav>
       {project.hero && <figure className="project-cover"><a href={project.hero} target="_blank" rel="noreferrer" aria-label={`${t.enlargeLabel} ${project.title} ${t.overview}`}><img src={project.hero} width={project.heroSize?.[0] ?? (slug === 'sense-together' || slug === 'vitalride' ? 1667 : 1250)} height={project.heroSize?.[1] ?? (slug === 'sense-together' || slug === 'vitalride' ? 834 : 625)} alt={`${project.title} / ${t.overview}`} /></a><figcaption><span>{project.title} / {project.experimental ? (locale === 'zh' ? '团队原型与方案记录' : 'Team prototype and design record') : t.overview}</span><span>{t.enlarge}</span></figcaption></figure>}
+      {['sense-together', 'vitalride', 'purelink', 'color-showdown', 'tacchat'].includes(slug) ? <ProjectNarrative slug={slug} locale={locale} project={project} /> : <>
       <section id="question" className="case-grid">
         <span className="case-no">01 — {t.question}</span><div><h2>{t.questionTitle}<br /><em>{t.questionEm}</em></h2><p>{project.challenge}</p></div>
       </section>
@@ -55,6 +57,7 @@ export default async function ProjectPage({ params, searchParams }: PageProps) {
         {record && <ResearchArchive record={record} locale={locale} />}
       </section>
       <section id="reflection" className="outcome-block"><p className="eyebrow">03 — {project.experimental ? t.progressTitle : t.outcomeTitle}</p><h2>{project.outcome}</h2>{record ? <ProjectValidation record={record} locale={locale} /> : project.note && <p className="honesty-note"><strong>{t.noteTitle}</strong>{project.note}</p>}</section>
+      </>}
       <a className="next-project" href={href(`/project/${next.slug}`)}><span>{t.next}</span><strong lang="en">{next.title}</strong><ArrowUpRight /></a>
     </main>
   );
