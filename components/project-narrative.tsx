@@ -96,6 +96,7 @@ export function ProjectNarrative({ slug, locale, project }: { slug: string; loca
     <section id="reflection" className="outcome-block"><p className="eyebrow">03 — {locale === 'zh' ? '成果与验证' : 'Outcome & validation'}</p>
       <h2>{project.outcome}</h2>
       <ProjectValidation record={record} locale={locale}/>
+      {slug === 'tacchat' && <p className="publication-note"><a href="https://dl.acm.org/doi/10.1145/3772363.3798574#artseq-00009" target="_blank" rel="noreferrer">{locale === 'zh' ? '阅读 CHI 2026 论文 ↗' : 'Read the CHI 2026 paper ↗'}</a></p>}
       <ResearchArchive record={record} locale={locale}/>
     </section>
   </>;
