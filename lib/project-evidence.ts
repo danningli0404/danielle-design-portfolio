@@ -144,7 +144,7 @@ export const evidence: Record<string, ProjectEvidence> = {
   },
   tacchat: {
     period: '2025.07 — 2025.10',
-    contribution: copy('清华大学未来实验室团队项目，共同第一作者。原作品集明确列出的个人贡献是系统工作流设计、实验设计与数据分析。', 'Team research at Tsinghua University’s Future Laboratory; co-first author. The portfolio explicitly lists my contributions as system workflow design, experimental design, and data analysis.'),
+    contribution: copy('清华大学未来实验室团队项目，共同第一作者。我的贡献包括系统工作流设计、实验设计、实验过程推进、数据分析与论文撰写。', 'Team research at Tsinghua University’s Future Laboratory; co-first author. My contributions included system-workflow design, experimental design and coordination, data analysis, and paper writing.'),
     stage: copy('团队研究系统与用户实验；个人贡献按原稿范围呈现。', 'Team research system and user experiments, with individual contribution scoped to the original record.'),
     contextPages: [25, 26],
     decisions: [
@@ -170,7 +170,7 @@ export const evidence: Record<string, ProjectEvidence> = {
     demonstrated: copy('原稿另报告玩具组装决策时间减少约三分之一、正确率提高 20%；该页没有进一步说明这两个比较的完整基线。参与者作品与反馈也记录在同页。', 'The portfolio also reports roughly one-third less toy-assembly decision time and 20% higher correctness, without fully specifying those comparison baselines. Participant work and feedback appear on the same page.'),
     limits: copy('以上数值来自原作品集。该摘要未列出样本量、完整分组条件和统计检验，因此仅作为所述任务中的结果呈现，不外推为所有用户或场景的普遍效果。', 'The figures above are reported in the original portfolio. Its summary does not specify sample size, full group conditions, or statistical tests, so these findings are limited to the described tasks rather than generalized to all users or contexts.'),
     resultPages: [26],
-    publication: copy('论文状态（原作品集记录）：已投稿 IMWUT，非录用或发表声明。相关团队背景：团队 RTD 触觉图形设备于 2025 年 6 月在联合国日内瓦办事处展出；该展览记录不列入我的个人贡献。', 'Paper status as recorded in the portfolio: submitted to IMWUT; this is not a claim of acceptance or publication. Related team context: the team’s RTD tactile-graphics device was exhibited at the United Nations Office at Geneva in June 2025; that exhibition is not included in my individual contributions.'),
+    publication: copy('论文已被 CHI 2026 收录。相关团队背景：RTD 触觉图形设备于 2025 年 6 月在联合国日内瓦办事处展出；该展览记录不列入我的个人贡献。', 'The paper was accepted to CHI 2026. Related team context: the team’s RTD tactile-graphics device was exhibited at the United Nations Office at Geneva in June 2025; that exhibition is not included in my individual contributions.'),
   },
 };
 
