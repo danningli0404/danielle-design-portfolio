@@ -23,7 +23,7 @@ export function ProjectDecisions({ record, locale }: { record: ProjectEvidence; 
     {record.decisions.map((decision, index) => <Fragment key={decision.title.en}>
       <article className="evidence-step">
         <div className="evidence-step-heading"><span className="evidence-index">{String(index + 1).padStart(2, '0')}</span><h3>{text(decision.title)}</h3></div>
-        <div className="evidence-step-body"><p><strong>{locale === 'zh' ? '研究与记录' : 'Research and observations'}</strong>{text(decision.finding)}</p><p><strong>{locale === 'zh' ? '设计回应' : 'Design response'}</strong>{text(decision.response)}</p><SourceLinks pages={decision.pages} locale={locale} record={record} /></div>
+        <div className="evidence-step-body"><p><strong>{locale === 'zh' ? '研究与记录' : 'Research and observations'}</strong>{text(decision.finding)}</p><p><strong>{locale === 'zh' ? '设计回应' : 'Design response'}</strong>{text(decision.response)}</p>{record.source?.directory !== '/summer/coco-carry' && <SourceLinks pages={decision.pages} locale={locale} record={record} />}</div>
       </article>
       {record.source?.directory === '/summer/coco-carry' && index === 1 && <figure className="process-spread"><a href="/summer/coco-carry/page-07.jpg" target="_blank" rel="noreferrer"><img src="/summer/coco-carry/page-07.jpg" width={1920} height={1080} alt={locale === 'zh' ? 'Coco Carry 产品草图与结构探索' : 'Coco Carry product sketches and structural exploration'} loading="lazy" /></a><figcaption>{locale === 'zh' ? '产品草图与结构探索 · 原团队展示第 7 页。' : 'Product sketches and structural exploration · Original team presentation, p. 7.'}</figcaption></figure>}
     </Fragment>)}
@@ -44,6 +44,6 @@ export function ProjectValidation({ record, locale, pdfSlug }: { record: Project
     {record.metrics && <dl className="evidence-metrics">{record.metrics.map(metric => <div key={metric.label.en}><dt>{metric.label[locale]}</dt><dd><span>{metric.value}</span><p>{metric.context[locale]}</p></dd></div>)}</dl>}
     <div className="validation-grid"><div><h3>{locale === 'zh' ? '已记录的成果' : 'Documented work'}</h3><p>{record.demonstrated[locale]}</p></div><div><h3>{locale === 'zh' ? '验证范围' : 'Scope of validation'}</h3><p>{record.limits[locale]}</p></div></div>
     {record.publication && <p className="publication-note">{record.publication[locale]}</p>}
-    {!pdfSlug && <SourceLinks pages={record.resultPages} locale={locale} record={record} />}
+    {!pdfSlug && record.source?.directory !== '/summer/coco-carry' && <SourceLinks pages={record.resultPages} locale={locale} record={record} />}
   </div>;
 }
