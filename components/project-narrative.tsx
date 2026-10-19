@@ -110,7 +110,7 @@ const sectionLabels: Record<string, {research:Bilingual;design:Bilingual;outcome
 function MediaGrid({items,locale}:{items:[string,string][];locale:Locale}) {
  if (!items.length) return null;
  return <div className="case-media-grid">{items.map(([file,caption])=><figure key={file}>
-  <img src={`/projects/${file}`} loading="lazy" alt={caption}/>
+  <img src={`${process.env.NEXT_PUBLIC_PAGES_BASE_PATH || ''}/projects/${file}`} loading="lazy" alt={caption}/>
   <figcaption>{locale==='zh'?caption:file.replace(/\.webp$/,'').replaceAll('-',' ')}</figcaption>
  </figure>)}</div>;
 }
