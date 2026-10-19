@@ -95,9 +95,9 @@ const media: Record<string, { research: [string, string][]; design: [string,stri
     outcome: [['color-showdown-p24-game-ui-overview.webp','游戏关卡、菜单与状态界面']]
   },
   tacchat: {
-    research: [['tacchat-p26-interview-photo.webp','面向盲人与低视力学生的访谈'],['tacchat-p26-participant-quotes.webp','参与者关于创作与交流的反馈']],
+    research: [['tacchat-p26-interview-photo.webp','面向盲人与低视力学生的访谈'],['tacchat-p26-participant-quotes.webp','参与者关于创作与交流的反馈'],['tacchat-p26-tactile-authoring-test.webp','参与者触觉图形创作测试']],
     design: [['tacchat-p26-workflow-overview.webp','触觉图形创作、转换与分享工作流'],['tacchat-p26-physical-system.webp','3D打印笔与RTD触觉显示设备']],
-    outcome: [['tacchat-p26-tactile-authoring-test.webp','参与者触觉图形创作测试'],['tacchat-p26-performance-results.webp','路线导航与玩具组装任务结果'],['tacchat-p26-ueqs-results.webp','UEQ-S体验评价结果']]
+    outcome: []
   }
 };
 const sectionLabels: Record<string, {research:Bilingual;design:Bilingual;outcome:Bilingual}> = {
@@ -105,7 +105,7 @@ const sectionLabels: Record<string, {research:Bilingual;design:Bilingual;outcome
  vitalride:{research:c('现场调研与骑手需求','Field research & rider needs'),design:c('产品与界面设计','Product & interface design'),outcome:c('传感器原型与验证','Sensing prototype & validation')},
  purelink:{research:c('用水问题与参与式调研','Water concerns & participatory research'),design:c('服务系统与双端界面','Service system & two-sided interfaces'),outcome:c('产品原型与测试记录','Product prototype & test record')},
  'color-showdown':{research:c('版权议题与设计目标','Copyright context & design goal'),design:c('实体交互与硬件实现','Physical interaction & hardware'),outcome:c('游戏界面与运行原型','Game interface & playable prototype')},
- tacchat:{research:c('研究背景与用户实验','Research context & user study'),design:c('触觉创作系统工作流','Tactile authoring workflow'),outcome:c('研究结果与学术成果','Research results & academic outcome')}
+ tacchat:{research:c('研究背景与用户实验','Research context & user study'),design:c('触觉创作系统工作流','Tactile authoring workflow'),outcome:c('论文收录与展览','Publication & exhibition')}
 };
 function MediaGrid({items,locale}:{items:[string,string][];locale:Locale}) {
  if (!items.length) return null;
@@ -123,7 +123,7 @@ export function ProjectNarrative({ slug, locale, project }: { slug: string; loca
   <section id="process" className="process-section case-story">
    {groups.map(group=>{
     const items=story.blocks.slice(group.from,group.to);
-    return <section className="case-story-section" key={group.id}>
+    return <section id={slug==='tacchat'&&group.id==='outcome'?'reflection':undefined} className="case-story-section" key={group.id}>
      <div className="case-grid"><span className="case-no">{group.id==='research'?'01':group.id==='design'?'02':'03'} — {labels[group.id][locale]}</span><div><h2>{labels[group.id][locale]}</h2></div></div>
      <div className="case-story-copy">{items.map((item,index)=><p key={index}>{item.text[locale==='zh'?0:1]}</p>)}</div>
      <MediaGrid items={images[group.id]} locale={locale}/>
