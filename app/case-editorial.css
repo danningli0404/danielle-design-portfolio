@@ -112,3 +112,63 @@
 .case-editorial[data-project="color-showdown"]{--paper:#14201e;--ink:#f1eee8;--muted:#c0cbc5;--accent:#74b99c;--surface:#1d2c28;--accent-soft:#243a33;--line:#e5fff32e}
 .case-editorial[data-project="color-showdown"] .case-masthead::after{background:linear-gradient(100deg,#14201ef2 0%,#14201ee8 65%,#14201eaa 100%)}
 .case-editorial[data-project="tacchat"]{--paper:#eff2f8;--ink:#24314b;--muted:#596984;--accent:#607ba8;--surface:#e2e8f2;--accent-soft:#d4deee;--line:#384f7333}
+
+
+/* Let the project imagery lead, with generous space around every visual. */
+.case-editorial .case-story-section{padding:58px 0 36px}
+.case-editorial .case-story-section .case-grid{padding:34px 0 24px}
+.case-editorial .case-story-copy{margin:0 8.5% 26px 32%;max-width:820px}
+.case-editorial .case-media-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:clamp(22px,3vw,44px);
+  margin:36px 8.5% 78px;
+}
+.case-editorial .case-media-grid figure{
+  padding:clamp(16px,2.2vw,30px);
+  border-radius:0;
+}
+.case-editorial .case-media-grid figure:only-child{grid-column:1/-1}
+.case-editorial .case-media-grid img{
+  max-height:min(74vh,820px);
+  border-radius:0;
+}
+.case-editorial .case-media-grid figure:only-child img{max-height:min(82vh,1000px)}
+.case-editorial .case-media-grid figcaption{padding:15px 3px 0}
+.case-editorial .project-cover,.case-editorial .process-spread{
+  background:var(--surface);
+  margin:28px 8.5% 76px;
+  padding:clamp(18px,2.4vw,38px);
+  border-radius:0;
+}
+.case-editorial .project-cover img,.case-editorial .process-spread img{
+  width:100%;max-width:none;max-height:min(82vh,1000px);border-radius:0
+}
+.case-editorial .research-archive{
+  margin:42px 8.5% 78px;padding:28px clamp(20px,3vw,42px);border-radius:0
+}
+.case-editorial .research-archive-pages{gap:clamp(24px,3vw,44px)}
+.case-editorial .research-archive img{border-radius:0}
+.case-editorial .evidence-section{margin:0 8.5% 78px}
+.case-editorial .evidence-step{padding:42px 0}
+.case-editorial .chapter-nav{margin-inline:8.5%}
+.case-editorial[data-project="sense-together"]{--paper:#101416;--ink:#f4f0e9;--muted:#b9c4c1;--accent:#00d7e5;--surface:#192225;--accent-soft:#1d2c30;--line:#d8f3ef35}
+.case-editorial[data-project="sense-together"] .case-masthead::after{background:linear-gradient(100deg,#101416f5 0%,#101416eb 65%,#101416ba 100%)}
+.case-editorial[data-project="vitalride"]{--paper:#f2f5e9;--ink:#243321;--muted:#56634c;--accent:#71891f;--surface:#e7edda;--accent-soft:#dce9bd;--line:#536b3340}
+.case-editorial[data-project="purelink"]{--paper:#f0f6fa;--ink:#24374d;--muted:#5c6b7b;--accent:#4386b5;--surface:#e4eef4;--accent-soft:#d6e8f2;--line:#4565803b}
+.case-editorial[data-project="color-showdown"]{--paper:#14201e;--ink:#f1eee8;--muted:#c0cbc5;--accent:#74c7a8;--surface:#1d2c28;--accent-soft:#243a33;--line:#e5fff332}
+.case-editorial[data-project="color-showdown"] .case-masthead::after{background:linear-gradient(100deg,#14201ef2 0%,#14201ee8 65%,#14201eaa 100%)}
+.case-editorial[data-project="tacchat"]{--paper:#f5f0e7;--ink:#2b241d;--muted:#6c6257;--accent:#a37b57;--surface:#ebe3d7;--accent-soft:#e9d9c7;--line:#67553f38}
+.case-editorial[data-project="cocokeep"]{--paper:#eff5f8;--ink:#263852;--muted:#5c6e83;--accent:#829b4e;--surface:#e0ebf1;--accent-soft:#d5e4ed;--line:#405d7738}
+.case-editorial[data-project="ice-chamber"]{--paper:#f3ede6;--ink:#382c23;--muted:#74665b;--accent:#8c705d;--surface:#e9dfd4;--accent-soft:#e5d7ca;--line:#6d594638}
+@media(max-width:780px){
+ .case-editorial .case-story-section{padding:36px 0 14px}
+ .case-editorial .case-story-copy{margin:0 7% 20px;max-width:none}
+ .case-editorial .case-media-grid{grid-template-columns:1fr;gap:22px;margin:24px 6% 52px}
+ .case-editorial .case-media-grid figure{padding:15px}
+ .case-editorial .case-media-grid img,.case-editorial .case-media-grid figure:only-child img{max-height:72vh}
+ .case-editorial .project-cover,.case-editorial .process-spread{margin:20px 5% 48px;padding:15px}
+ .case-editorial .project-cover img,.case-editorial .process-spread img{max-height:72vh}
+ .case-editorial .research-archive{margin:28px 5% 52px;padding:18px}
+ .case-editorial .evidence-section{margin:0 7% 50px}
+ .case-editorial .chapter-nav{margin-inline:7%}
+}
