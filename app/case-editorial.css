@@ -28,7 +28,7 @@
 .case-editorial .evidence-source{color:#69735e;font-size:11px}
 .case-editorial .evidence-source a{border-color:#a68d3466;color:#5e542d}
 .case-editorial .chapter-nav{margin:0 8%;padding:22px 0 30px;border:0;justify-content:flex-start;align-items:center;gap:10px;font-size:12px}
-.case-editorial .chapter-nav a{border:1px solid #52624838;border-radius:999px;padding:8px 17px;transition:background .15s}
+.case-editorial .chapter-nav a{border:1px solid #52624838;border-radius:0;padding:8px 17px;transition:background .15s}
 .case-editorial .chapter-nav a:hover{background:#e5c94f;color:#17261f;border-color:#b59e36}
 .case-editorial .chapter-nav>span{font:italic 16px var(--font-serif);color:#68745e}
 .case-editorial .project-cover,.case-editorial .process-spread{background:#faf8f1;margin:0 5% 28px;padding:22px;border-radius:14px}
