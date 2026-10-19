@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import { sourcePageUrl, type Bilingual, type ProjectEvidence } from '@/lib/project-evidence';
 import type { Locale } from '@/lib/i18n';
 
@@ -19,10 +20,13 @@ export function ProjectContext({ record, locale, pdfSlug, pdfUrl }: { record: Pr
 export function ProjectDecisions({ record, locale }: { record: ProjectEvidence; locale: Locale }) {
   const text = (value: Bilingual) => value[locale];
   return <div className="evidence-section" aria-label={locale === 'zh' ? '研究与设计依据' : 'Research and design reasoning'}>
-    {record.decisions.map((decision, index) => <article className="evidence-step" key={decision.title.en}>
-      <div className="evidence-step-heading"><span className="evidence-index">{String(index + 1).padStart(2, '0')}</span><h3>{text(decision.title)}</h3></div>
-      <div className="evidence-step-body"><p><strong>{locale === 'zh' ? '研究与记录' : 'Research and observations'}</strong>{text(decision.finding)}</p><p><strong>{locale === 'zh' ? '设计回应' : 'Design response'}</strong>{text(decision.response)}</p><SourceLinks pages={decision.pages} locale={locale} record={record} /></div>
-    </article>)}
+    {record.decisions.map((decision, index) => <Fragment key={decision.title.en}>
+      <article className="evidence-step">
+        <div className="evidence-step-heading"><span className="evidence-index">{String(index + 1).padStart(2, '0')}</span><h3>{text(decision.title)}</h3></div>
+        <div className="evidence-step-body"><p><strong>{locale === 'zh' ? '研究与记录' : 'Research and observations'}</strong>{text(decision.finding)}</p><p><strong>{locale === 'zh' ? '设计回应' : 'Design response'}</strong>{text(decision.response)}</p><SourceLinks pages={decision.pages} locale={locale} record={record} /></div>
+      </article>
+      {record.source?.directory === '/summer/coco-carry' && index === 1 && <figure className="process-spread"><a href="/summer/coco-carry/page-07.jpg" target="_blank" rel="noreferrer"><img src="/summer/coco-carry/page-07.jpg" width={1920} height={1080} alt={locale === 'zh' ? 'Coco Carry 产品草图与结构探索' : 'Coco Carry product sketches and structural exploration'} loading="lazy" /></a><figcaption>{locale === 'zh' ? '产品草图与结构探索 · 原团队展示第 7 页。' : 'Product sketches and structural exploration · Original team presentation, p. 7.'}</figcaption></figure>}
+    </Fragment>)}
   </div>;
 }
 
