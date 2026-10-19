@@ -72,32 +72,67 @@ const stories: Record<string, Story> = {
   },
 };
 
+
+const media: Record<string, { research: [string, string][]; design: [string,string][]; outcome: [string,string][] }> = {
+  'sense-together': {
+    research: [['sense-together-p03-interviews-panel.webp','三位听障与视障观众的访谈'],['sense-together-p03-research-insights.webp','访谈与案例研究得到的洞察']],
+    design: [['sense-together-p05-service-blueprint.webp','演出前、中、后的服务蓝图'],['sense-together-p06-wireframe-overview.webp','应用低保真结构'],['sense-together-p06-interface-overview.webp','听觉与视觉辅助界面']],
+    outcome: [['sense-together-p07-integrated-experience.webp','AR眼镜、触觉手环与应用的现场使用场景']]
+  },
+  vitalride: {
+    research: [['vitalride-p10-fieldwork-strip.webp','骑手休息与工作现场记录'],['vitalride-p10-journey-map.webp','配送过程中的身体与情绪旅程']],
+    design: [['vitalride-p11-high-fidelity-overview.webp','身体状态、提醒与设备信息界面']],
+    outcome: [['vitalride-p12-wearable-annotated.webp','背心与头盔的结构及传感器位置'],['vitalride-p13-sensor-test-photos.webp','传感器原型测试照片']]
+  },
+  purelink: {
+    research: [['purelink-p15-pollution-evidence.webp','社区生活用水问题记录'],['purelink-p16-probe-toolkit.webp','文化探针工具包'],['purelink-p16-co-design-photo.webp','居民与物业共创过程']],
+    design: [['purelink-p17-system-map.webp','政府、自来水厂、物业与居民的协作系统'],['purelink-p17-resident-ui-overview.webp','居民端应用界面']],
+    outcome: [['purelink-p18-product-render.webp','PureLink净水器产品渲染'],['purelink-p18-before-after.webp','原型测试中的净化前后水样记录']]
+  },
+  'color-showdown': {
+    research: [['color-showdown-p21-copyright-case.webp','生成式图像与艺术家版权议题资料']],
+    design: [['color-showdown-p22-hand-interaction.webp','通过实体敲击控制色块的交互机制'],['color-showdown-p23-hardware-components.webp','Arduino与触摸传感器硬件'],['color-showdown-p23-live-system.webp','Unity与实体传感器连接后的运行原型']],
+    outcome: [['color-showdown-p24-game-ui-overview.webp','游戏关卡、菜单与状态界面']]
+  },
+  tacchat: {
+    research: [['tacchat-p26-interview-photo.webp','面向盲人与低视力学生的访谈'],['tacchat-p26-participant-quotes.webp','参与者关于创作与交流的反馈']],
+    design: [['tacchat-p26-workflow-overview.webp','触觉图形创作、转换与分享工作流'],['tacchat-p26-physical-system.webp','3D打印笔与RTD触觉显示设备']],
+    outcome: [['tacchat-p26-tactile-authoring-test.webp','参与者触觉图形创作测试'],['tacchat-p26-performance-results.webp','路线导航与玩具组装任务结果'],['tacchat-p26-ueqs-results.webp','UEQ-S体验评价结果']]
+  }
+};
+const sectionLabels: Record<string, {research:Bilingual;design:Bilingual;outcome:Bilingual}> = {
+ 'sense-together':{research:c('研究与用户需求','Research & user needs'),design:c('服务设计与界面方案','Service design & interfaces'),outcome:c('设备原型与使用场景','Wearable prototype & use scenario')},
+ vitalride:{research:c('现场调研与骑手需求','Field research & rider needs'),design:c('产品与界面设计','Product & interface design'),outcome:c('传感器原型与验证','Sensing prototype & validation')},
+ purelink:{research:c('用水问题与参与式调研','Water concerns & participatory research'),design:c('服务系统与双端界面','Service system & two-sided interfaces'),outcome:c('产品原型与测试记录','Product prototype & test record')},
+ 'color-showdown':{research:c('版权议题与设计目标','Copyright context & design goal'),design:c('实体交互与硬件实现','Physical interaction & hardware'),outcome:c('游戏界面与运行原型','Game interface & playable prototype')},
+ tacchat:{research:c('研究背景与用户实验','Research context & user study'),design:c('触觉创作系统工作流','Tactile authoring workflow'),outcome:c('研究结果与学术成果','Research results & academic outcome')}
+};
+function MediaGrid({items,locale}:{items:[string,string][];locale:Locale}) {
+ if (!items.length) return null;
+ return <div className="case-media-grid">{items.map(([file,caption])=><figure key={file}>
+  <img src={`/projects/${file}`} loading="lazy" alt={caption}/>
+  <figcaption>{locale==='zh'?caption:file.replace(/\.webp$/,'').replaceAll('-',' ')}</figcaption>
+ </figure>)}</div>;
+}
 export function ProjectNarrative({ slug, locale, project }: { slug: string; locale: Locale; project: { challenge: string; outcome: string } }) {
-  const story = stories[slug];
-  const record = evidence[slug];
-  if (!story || !record) return null;
-  const pages = Array.from(new Set(story.selectedPages));
-  return <>
-    <section id="question" className="case-grid">
-      <span className="case-no">01 — {locale === 'zh' ? '设计问题' : 'The question'}</span>
-      <div><h2>{locale === 'zh' ? '从真实处境开始，' : 'Start with the lived context,'}<br/><em>{locale === 'zh' ? '再决定设计什么。' : 'then decide what to design.'}</em></h2><p>{story.challenge[locale]}</p></div>
-    </section>
-    <section id="process" className="process-section">
-      <div className="case-grid"><span className="case-no">02 — {locale === 'zh' ? '研究与设计' : 'Research & design'}</span><div><h2>{locale === 'zh' ? '让每个决定，' : 'Let each decision'}<br/><em>{locale === 'zh' ? '都能回到证据。' : 'return to its evidence.'}</em></h2></div></div>
-      <div className="evidence-section">{story.blocks.map((item, index) => <article className="evidence-step" key={item.title.en}>
-        <div className="evidence-step-heading"><span className="evidence-index">{String(index + 1).padStart(2, '0')}</span><h3>{item.title[locale]}</h3></div>
-        <div className="evidence-step-body"><p>{item.text[locale === 'zh' ? 0 : 1]}</p><p className="evidence-source">{locale === 'zh' ? '作品集材料' : 'Portfolio material'} {item.pages.map(page => <a key={page} href={sourcePageUrl(page, record)} target="_blank" rel="noreferrer">p. {page} ↗</a>)}</p></div>
-      </article>)}</div>
-      <div className="research-archive"><div className="research-archive-pages">{pages.map(page => <figure key={page}>
-        <a href={sourcePageUrl(page, record)} target="_blank" rel="noreferrer"><img src={sourcePageUrl(page, record)} loading="lazy" width={1800} height={900} alt={locale === 'zh' ? '原作品集第 ' + page + ' 页' : 'Original portfolio page ' + page} /></a>
-        <figcaption>{locale === 'zh' ? '原作品集 · 第 ' + page + ' 页' : 'Original portfolio · p. ' + page}</figcaption>
-      </figure>)}</div></div>
-    </section>
-    <section id="reflection" className="outcome-block"><p className="eyebrow">03 — {locale === 'zh' ? '成果与验证' : 'Outcome & validation'}</p>
-      <h2>{project.outcome}</h2>
-      <ProjectValidation record={record} locale={locale}/>
-      {slug === 'tacchat' && <p className="publication-note"><a href="https://dl.acm.org/doi/10.1145/3772363.3798574#artseq-00009" target="_blank" rel="noreferrer">{locale === 'zh' ? '阅读 CHI 2026 论文 ↗' : 'Read the CHI 2026 paper ↗'}</a></p>}
-      <ResearchArchive record={record} locale={locale}/>
-    </section>
-  </>;
+ const story=stories[slug], record=evidence[slug], labels=sectionLabels[slug], images=media[slug];
+ if(!story||!record||!labels||!images)return null;
+ const groups=[{id:'research' as const,from:0,to:2},{id:'design' as const,from:2,to:4},{id:'outcome' as const,from:4,to:story.blocks.length}];
+ return <>
+  <section id="question" className="case-opening"><div className="case-opening-copy"><p className="eyebrow">{locale==='zh'?'项目缘起':'Project context'}</p><h2>{locale==='zh'?'从具体问题出发':'Starting from a concrete need'}</h2><p>{story.challenge[locale]}</p></div></section>
+  <section id="process" className="process-section case-story">
+   {groups.map(group=>{
+    const items=story.blocks.slice(group.from,group.to);
+    return <section className="case-story-section" key={group.id}>
+     <div className="case-grid"><span className="case-no">{group.id==='research'?'01':group.id==='design'?'02':'03'} — {labels[group.id][locale]}</span><div><h2>{labels[group.id][locale]}</h2></div></div>
+     <div className="case-story-copy">{items.map((item,index)=><p key={index}>{item.text[locale==='zh'?0:1]}</p>)}</div>
+     <MediaGrid items={images[group.id]} locale={locale}/>
+    </section>;
+   })}
+  </section>
+  <section id="reflection" className="outcome-block"><p className="eyebrow">{locale==='zh'?'项目成果':'Project outcomes'}</p>
+   <h2>{project.outcome}</h2><ProjectValidation record={record} locale={locale} pdfSlug={slug}/>
+   {slug==='tacchat'&&<p className="publication-note"><a href="https://dl.acm.org/doi/10.1145/3772363.3798574#artseq-00009" target="_blank" rel="noreferrer">{locale==='zh'?'阅读 CHI 2026 论文 ↗':'Read the CHI 2026 paper ↗'}</a></p>}
+  </section>
+ </>;
 }
