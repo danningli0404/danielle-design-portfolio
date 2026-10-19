@@ -7,11 +7,11 @@ function SourceLinks({ pages, locale, record }: { pages: number[]; locale: Local
   )}</p>;
 }
 
-export function ProjectContext({ record, locale, pdfSlug }: { record: ProjectEvidence; locale: Locale; pdfSlug?: string }) {
+export function ProjectContext({ record, locale, pdfSlug, pdfUrl }: { record: ProjectEvidence; locale: Locale; pdfSlug?: string; pdfUrl?: string }) {
   return <aside className="project-context" aria-label={locale === 'zh' ? '项目职责与完成阶段' : 'Contribution and project stage'}>
     <dl><div><dt>{locale === 'zh' ? '我的贡献' : 'My contribution'}</dt><dd>{record.contribution[locale]}</dd></div>
     <div><dt>{locale === 'zh' ? '完成阶段' : 'Project stage'}</dt><dd>{record.stage[locale]}</dd></div></dl>
-    {pdfSlug ? <a className="case-pdf-link" href={`/research/${pdfSlug}.pdf`} target="_blank" rel="noreferrer">{locale === "zh" ? "查看完整项目 PDF" : "View complete project PDF"} <span aria-hidden="true">↗</span></a> : <SourceLinks pages={record.contextPages} locale={locale} record={record} />}
+    {(pdfUrl || pdfSlug) ? <a className="case-pdf-link" href={pdfUrl ?? `/research/${pdfSlug}.pdf`} target="_blank" rel="noreferrer">{locale === "zh" ? "查看完整项目 PDF" : "View complete project PDF"} <span aria-hidden="true">↗</span></a> : <SourceLinks pages={record.contextPages} locale={locale} record={record} />}
     {record.demo && <a className="prototype-demo" href={record.demo.url} target="_blank" rel="noreferrer">{record.demo.label[locale]} <span aria-hidden="true">↗</span></a>}
   </aside>;
 }
