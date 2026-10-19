@@ -86,7 +86,7 @@ const media: Record<string, { research: [string, string][]; design: [string,stri
   },
   purelink: {
     research: [['purelink-p15-pollution-evidence.webp','社区生活用水问题记录'],['purelink-p16-probe-toolkit.webp','文化探针工具包'],['purelink-p16-co-design-photo.webp','居民与物业共创过程']],
-    design: [['purelink-p17-system-map.webp','政府、自来水厂、物业与居民的协作系统'],['purelink-p17-resident-ui-overview.webp','居民端应用界面']],
+    design: [['purelink-p17-system-map.webp','政府、自来水厂、物业与居民的协作系统'],['purelink-p17-resident-ui-overview.webp','居民端应用界面'],['purelink-p17-property-management-ui.jpg','物业端界面与用户测试']],
     outcome: [['purelink-p18-product-render.webp','PureLink净水器产品渲染'],['purelink-p18-before-after.webp','原型测试中的净化前后水样记录']]
   },
   'color-showdown': {
