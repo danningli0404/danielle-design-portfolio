@@ -20,6 +20,8 @@ jobs:
           node-version: '22'
       - run: corepack enable
       - run: pnpm install --frozen-lockfile
+      - name: Include Coco Carry presentation for browser preview
+        run: mkdir -p public/research && curl --fail --location --retry 3 'https://github.com/danningli0404/danielle-design-portfolio/releases/download/coco-carry-full-presentation-2026-10-18/Coco-Carry-Khipra-Project.pdf' --output public/research/cococarry.pdf
       - run: pnpm run build:pages
         env:
           NEXT_PUBLIC_PAGES_BASE_PATH: /danielle-design-portfolio
