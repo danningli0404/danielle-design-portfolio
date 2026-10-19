@@ -521,3 +521,33 @@
   .home-mist .experiment-card { min-height:220px; }
   .home-mist footer { min-height:150px; }
 }
+
+
+/* Clear, soft cast shadows let the product cutouts sit naturally on the desk. */
+.home-mist .work-image {
+  filter:
+    drop-shadow(1px 0 0 var(--object-outline))
+    drop-shadow(-1px 0 0 var(--object-outline))
+    drop-shadow(0 1px 0 var(--object-outline))
+    drop-shadow(0 -1px 0 var(--object-outline))
+    drop-shadow(0 7px 8px #352f2040)
+    drop-shadow(0 24px 30px #352f2030);
+}
+.home-mist .work-object:hover .work-image {
+  filter:
+    drop-shadow(1px 0 0 var(--object-outline))
+    drop-shadow(-1px 0 0 var(--object-outline))
+    drop-shadow(0 1px 0 var(--object-outline))
+    drop-shadow(0 -1px 0 var(--object-outline))
+    drop-shadow(0 9px 10px #352f2052)
+    drop-shadow(0 30px 34px #352f2040);
+}
+.home-mist .work-object.is-dragging .work-image {
+  filter:
+    drop-shadow(1px 0 0 var(--object-outline))
+    drop-shadow(-1px 0 0 var(--object-outline))
+    drop-shadow(0 1px 0 var(--object-outline))
+    drop-shadow(0 -1px 0 var(--object-outline))
+    drop-shadow(0 10px 12px #352f205c)
+    drop-shadow(0 36px 38px #352f2045);
+}
