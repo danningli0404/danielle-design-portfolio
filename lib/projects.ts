@@ -42,11 +42,11 @@ const projectRecords: Project[] = [
   },
   {
     slug: 'tacchat', title: 'TacChat', kicker: 'Tactile authoring and sharing with BLV creators', year: '2025',
-    role: 'Team project · Co-first author', disciplines: ['Accessibility research', 'Experiment design', 'Data analysis', 'System workflow'], hero: '/projects/tacchat.jpg', process: '/projects/tacchat-process.jpg', accent: '#f0c8a7',
+    role: 'Team project · Second author', disciplines: ['Accessibility research', 'Experiment design', 'Data analysis', 'System workflow'], hero: '/projects/tacchat.jpg', process: '/projects/tacchat-process.jpg', accent: '#f0c8a7',
     summary: 'A research system that supports blind and low-vision users in authoring, converting, modifying, and sharing tactile graphics instead of remaining passive recipients.',
     challenge: 'Refreshable tactile graphics often focus on access to information, but far less attention is given to BLV users as creators and communicators of tactile content.',
-    approach: 'My contributions included system workflow design, experimental design, and data analysis. The research evaluated navigation and toy-assembly tasks alongside qualitative experience measures.',
-    outcome: 'TacChat connects tactile authoring, revision, and sharing in a three-stage workflow. The team evaluated navigation, toy assembly, and user experience. I am a co-first author on the CHI 2026 paper; my contributions included workflow design, experimental design and coordination, data analysis, and paper writing.',
+    approach: 'My contributions included system-workflow design, experimental design and coordination, data analysis, and paper writing. The team evaluated route-navigation and toy-recognition tasks and used UEQ-S to record participant experience.',
+    outcome: 'TacChat connects tactile authoring, conversion, revision, and sharing in a complete workflow, evaluated through route-navigation and toy-recognition tasks.',
   },
 ];
 

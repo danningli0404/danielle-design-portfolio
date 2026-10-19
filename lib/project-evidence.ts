@@ -144,7 +144,7 @@ export const evidence: Record<string, ProjectEvidence> = {
   },
   tacchat: {
     period: '2025.07 — 2025.10',
-    contribution: copy('清华大学未来实验室团队项目，共同第一作者。我的贡献包括系统工作流设计、实验设计、实验过程推进、数据分析与论文撰写。', 'Team research at Tsinghua University’s Future Laboratory; co-first author. My contributions included system-workflow design, experimental design and coordination, data analysis, and paper writing.'),
+    contribution: copy('系统工作流设计、实验设计与推进、数据分析和论文撰写。', 'System-workflow design, experimental design and coordination, data analysis, and paper writing.'),
     stage: copy('团队研究系统与用户实验；个人贡献按原稿范围呈现。', 'Team research system and user experiments, with individual contribution scoped to the original record.'),
     contextPages: [25, 26],
     decisions: [
@@ -162,15 +162,8 @@ export const evidence: Record<string, ProjectEvidence> = {
       },
     ],
     archivePages: [25],
-    metrics: [
-      { value: '93.3%', label: copy('路线完成率', 'Route completion'), context: copy('路线导航实验；原稿报告值', 'Route-navigation experiment; portfolio-reported') },
-      { value: '25%', label: copy('导航任务用时缩短', 'Less navigation time'), context: copy('相对纯语音组；原稿报告值', 'Compared with the verbal-only group; portfolio-reported') },
-      { value: '1.43', label: copy('UEQ-S 整体均值', 'Overall UEQ-S mean'), context: copy('原稿将整体体验评为 Good', 'Rated Good in the original portfolio') },
-    ],
-    demonstrated: copy('原稿另报告玩具组装决策时间减少约三分之一、正确率提高 20%；该页没有进一步说明这两个比较的完整基线。参与者作品与反馈也记录在同页。', 'The portfolio also reports roughly one-third less toy-assembly decision time and 20% higher correctness, without fully specifying those comparison baselines. Participant work and feedback appear on the same page.'),
-    limits: copy('以上数值来自原作品集。该摘要未列出样本量、完整分组条件和统计检验，因此仅作为所述任务中的结果呈现，不外推为所有用户或场景的普遍效果。', 'The figures above are reported in the original portfolio. Its summary does not specify sample size, full group conditions, or statistical tests, so these findings are limited to the described tasks rather than generalized to all users or contexts.'),
     resultPages: [26],
-    publication: copy('CHI 2026 论文已收录，论文链接见下方。原作品集将 TacChat 的 RTD 触觉图形设备展览记录为同一项目成果：设备于 2025 年 6 月 16–21 日在联合国日内瓦办事处展出。作品集标注的项目时间为 2025 年 7–10 月，晚于展览日期；原稿未解释这段时间关系。', 'The CHI 2026 paper was accepted; see the link below. The original portfolio records the TacChat RTD tactile-graphics exhibition as part of the same project: the device was shown at the United Nations Office at Geneva, June 16–21, 2025. The project period is listed as July–October 2025, after the exhibition; the portfolio does not explain the timeline.'),
+    
   },
 };
 

@@ -34,7 +34,7 @@ export default async function ProjectPage({ params, searchParams }: PageProps) {
   const record = evidence[slug];
   const current = projects.findIndex(item => item.slug === slug); const next = projects[(current + 1) % projects.length];
   return (
-    <main className={`project-page case-editorial${project.experimental ? ' summer-case' : ''}`} lang={locale === 'zh' ? 'zh-CN' : 'en'}>
+    <main data-project={slug} className={`project-page case-editorial${project.experimental ? ' summer-case' : ''}`} lang={locale === 'zh' ? 'zh-CN' : 'en'}>
       <EditorialCursor /><div className="case-masthead"><header className="project-nav"><a href={href('/#work')}><ArrowLeft size={14} /> {t.collection}</a><span>Danning Li · 李丹宁</span><div className="project-nav-actions"><a className="case-contact" href="mailto:danning_li@brown.edu">{locale === 'zh' ? '联系' : 'Contact'}</a><LanguageSwitch locale={locale} path={`/project/${slug}`} /></div></header>
       <section id="overview" className="project-hero">
         <p className="eyebrow">{project.kicker}</p><h1 lang="en">{project.title}</h1><p className="project-summary">{project.summary}</p>
@@ -43,7 +43,6 @@ export default async function ProjectPage({ params, searchParams }: PageProps) {
       </div>
       {record && <ProjectContext record={record} locale={locale} pdfSlug={["sense-together","vitalride","purelink","color-showdown","tacchat"].includes(slug) ? slug : undefined} />}
       <nav className="chapter-nav" aria-label={t.chapters}><a href="#question">{t.question}</a><a href="#process">{t.process}</a><a href="#reflection">{project.experimental ? t.progress : t.outcome}</a><span>{project.experimental ? t.notes : t.caseStudy} / {project.year}</span></nav>
-      {project.hero && <figure className="project-cover"><a href={project.hero} target="_blank" rel="noreferrer" aria-label={`${t.enlargeLabel} ${project.title} ${t.overview}`}><img src={project.hero} width={project.heroSize?.[0] ?? (slug === 'sense-together' || slug === 'vitalride' ? 1667 : 1250)} height={project.heroSize?.[1] ?? (slug === 'sense-together' || slug === 'vitalride' ? 834 : 625)} alt={`${project.title} / ${t.overview}`} /></a><figcaption><span>{project.title} / {project.experimental ? (locale === 'zh' ? '团队原型与方案记录' : 'Team prototype and design record') : t.overview}</span><span>{t.enlarge}</span></figcaption></figure>}
       {['sense-together', 'vitalride', 'purelink', 'color-showdown', 'tacchat'].includes(slug) ? <ProjectNarrative slug={slug} locale={locale} project={project} /> : <>
       <section id="question" className="case-grid">
         <span className="case-no">01 — {t.question}</span><div><h2>{t.questionTitle}<br /><em>{t.questionEm}</em></h2><p>{project.challenge}</p></div>

@@ -85,3 +85,30 @@
 .case-pdf-link:hover{color:#886f16}
 .case-editorial .project-context .case-pdf-link{align-self:flex-start}
 @media(max-width:780px){.case-opening{margin:0 7%;padding:38px 0 28px}.case-opening-copy{margin-left:0}.case-opening h2{font-size:32px}.case-story-section{padding:30px 0 5px}.case-story-section .case-grid{padding:22px 0 15px}.case-story-copy{margin:0 7% 15px}.case-media-grid{margin:18px 7% 32px;grid-template-columns:1fr}.case-media-grid img{max-height:460px}}
+
+/* Project color systems sampled from each case's own visuals. */
+.case-editorial[data-project]{--accent-soft:var(--surface);background:var(--paper);color:var(--ink)}
+.case-editorial[data-project] .case-masthead{background:var(--paper)}
+.case-editorial[data-project] .case-masthead::before{background:none;filter:none}
+.case-editorial[data-project] .case-masthead::after{background:linear-gradient(100deg,color-mix(in srgb,var(--paper) 96%,transparent) 0%,color-mix(in srgb,var(--paper) 88%,transparent) 70%,transparent 100%)}
+.case-editorial[data-project] .project-nav{color:var(--ink);border-color:var(--line)}
+.case-editorial[data-project] .project-nav a,.case-editorial[data-project] .project-nav>span{color:var(--ink)}
+.case-editorial[data-project] .project-hero>.eyebrow,.case-editorial[data-project] .project-facts p,.case-editorial[data-project] .case-story-copy p,.case-editorial[data-project] .case-opening p:not(.eyebrow),.case-editorial[data-project] .case-grid p,.case-editorial[data-project] .evidence-step p{color:var(--muted)}
+.case-editorial[data-project] .project-hero h1,.case-editorial[data-project] .project-summary,.case-editorial[data-project] .project-facts strong,.case-editorial[data-project] .case-grid h2,.case-editorial[data-project] .evidence-step h3{color:var(--ink)}
+.case-editorial[data-project] .project-context,.case-editorial[data-project] .case-opening,.case-editorial[data-project] .evidence-step,.case-editorial[data-project] .evidence-metrics{border-color:var(--line)}
+.case-editorial[data-project] .project-context dt,.case-editorial[data-project] .project-context dd,.case-editorial[data-project] .evidence-source,.case-editorial[data-project] .case-story-section .case-no,.case-editorial[data-project] .case-grid h2 em{color:var(--accent)}
+.case-editorial[data-project] .case-pdf-link,.case-editorial[data-project] .case-pdf-link:hover,.case-editorial[data-project] .publication-note a{color:var(--accent);border-color:var(--accent)}
+.case-editorial[data-project] .chapter-nav a{color:var(--ink);border-color:var(--line)}
+.case-editorial[data-project] .chapter-nav a:hover{background:var(--accent);color:var(--paper);border-color:var(--accent)}
+.case-editorial[data-project] .chapter-nav>span,.case-editorial[data-project] .project-cover figcaption,.case-editorial[data-project] .process-spread figcaption{color:var(--muted)}
+.case-editorial[data-project] .case-media-grid figure,.case-editorial[data-project] .research-archive{background:var(--surface);border-color:var(--line)}
+.case-editorial[data-project] .case-media-grid figcaption,.case-editorial[data-project] .research-archive figcaption,.case-editorial[data-project] .research-archive summary{color:var(--muted)}
+.case-editorial[data-project] .outcome-block,.case-editorial[data-project] .next-project{background:var(--accent-soft);color:var(--ink);border-color:var(--line)}
+.case-editorial[data-project] .outcome-block>.eyebrow,.case-editorial[data-project] .outcome-block h2,.case-editorial[data-project] .evidence-metrics dt,.case-editorial[data-project] .evidence-metrics dd p,.case-editorial[data-project] .evidence-metrics dd>span,.case-editorial[data-project] .validation-grid h3,.case-editorial[data-project] .validation-grid p,.case-editorial[data-project] .publication-note,.case-editorial[data-project] .honesty-note,.case-editorial[data-project] .next-project>span,.case-editorial[data-project] .next-project strong,.case-editorial[data-project] .next-project svg{color:var(--ink);border-color:var(--line)}
+.case-editorial[data-project="sense-together"]{--paper:#111416;--ink:#f3efe8;--muted:#c0c3bf;--accent:#ef8268;--surface:#1c2224;--accent-soft:#202729;--line:#e1eee62e}
+.case-editorial[data-project="sense-together"] .case-masthead::after{background:linear-gradient(100deg,#111416 0%,#111416e8 60%,#111416bd 100%)}
+.case-editorial[data-project="vitalride"]{--paper:#f1f5e8;--ink:#203323;--muted:#566a53;--accent:#71952a;--surface:#e3ecd5;--accent-soft:#d7e7bb;--line:#405e3433}
+.case-editorial[data-project="purelink"]{--paper:#edf6fc;--ink:#1d3152;--muted:#586d88;--accent:#367bb2;--surface:#deedf8;--accent-soft:#c8e2f5;--line:#385a7a30}
+.case-editorial[data-project="color-showdown"]{--paper:#14201e;--ink:#f1eee8;--muted:#c0cbc5;--accent:#74b99c;--surface:#1d2c28;--accent-soft:#243a33;--line:#e5fff32e}
+.case-editorial[data-project="color-showdown"] .case-masthead::after{background:linear-gradient(100deg,#14201ef2 0%,#14201ee8 65%,#14201eaa 100%)}
+.case-editorial[data-project="tacchat"]{--paper:#eff2f8;--ink:#24314b;--muted:#596984;--accent:#607ba8;--surface:#e2e8f2;--accent-soft:#d4deee;--line:#384f7333}
