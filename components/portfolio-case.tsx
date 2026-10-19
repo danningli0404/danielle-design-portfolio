@@ -41,7 +41,7 @@ export default async function ProjectPage({ params, searchParams }: PageProps) {
         <div className="project-facts"><p><strong>{record ? (locale === 'zh' ? '项目时间' : 'Timeline') : t.year}</strong>{record?.period ?? project.year}</p><p><strong>{t.role}</strong>{project.role}</p><p><strong>{t.areas}</strong>{project.disciplines.join(' · ')}</p></div>
       </section>
       </div>
-      {record && <ProjectContext record={record} locale={locale} pdfSlug={["sense-together","vitalride","purelink","color-showdown","tacchat"].includes(slug) ? slug : undefined} pdfUrl={slug === 'cocokeep' ? 'https://drive.google.com/file/d/1xGtk5Kkb0AHDNIF56uvlxyVjI8HwmOtp/view?usp=drivesdk' : undefined} />}
+      {record && <ProjectContext record={record} locale={locale} pdfSlug={["sense-together","vitalride","purelink","color-showdown","tacchat"].includes(slug) ? slug : undefined} pdfUrl={slug === 'cocokeep' ? 'https://github.com/danningli0404/danielle-design-portfolio/releases/download/coco-carry-full-presentation-2026-10-18/Coco-Carry-Khipra-Project.pdf' : undefined} />}
       <nav className="chapter-nav" aria-label={t.chapters}><a href="#question">{t.question}</a><a href="#process">{t.process}</a><a href="#reflection">{project.experimental ? t.progress : t.outcome}</a><span>{project.experimental ? t.notes : t.caseStudy} / {project.year}</span></nav>
       {['sense-together', 'vitalride', 'purelink', 'color-showdown', 'tacchat'].includes(slug) ? <ProjectNarrative slug={slug} locale={locale} project={project} /> : <>
       <section id="question" className="case-grid">
