@@ -54,7 +54,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<Sea
         <div className="topbar-actions"><nav aria-label={t.navigation}><a href="#work">{t.work}</a><a href="#experiments">{t.experiments}</a><a href="mailto:danning_li@brown.edu">{t.contact}</a></nav><LanguageSwitch locale={locale} path="/" /></div>
       </header>
       <div className="hero-profile">
-        <p className="hero-school">Brown University × Rhode Island School of Design<br />MA Design Engineering · 2027</p>
+        <p className="hero-school">Brown University × Rhode Island School of Design<br />{locale === 'zh' && <>布朗大学 × 罗德岛设计学院<br /></>}MA Design Engineering · 2027{locale === 'zh' && <> · 设计工程硕士</>}</p>
         <p className="hero-interests"><span>{locale === 'zh' ? '研究兴趣' : 'Research interests'}</span>{locale === 'zh' ? '人机交互 · 可穿戴设备 · 服务设计 · 认知科学' : 'Human–computer interaction · Wearable technology · Service design · Cognitive science'}</p>
       </div>
       <h1 className="hero-brand">Danning Li <span className="hero-name-zh">李丹宁</span></h1>
