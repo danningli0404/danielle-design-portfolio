@@ -172,3 +172,35 @@
  .case-editorial .evidence-section{margin:0 7% 50px}
  .case-editorial .chapter-nav{margin-inline:7%}
 }
+
+/* Shared square-option feedback across every case study and both languages. */
+.case-editorial[data-project]{
+ --option-hover-bg:color-mix(in srgb,var(--accent) 24%,var(--paper));
+}
+.case-editorial[data-project] :is(.chapter-nav a,.prototype-demo,.case-pdf-link,.research-archive>summary,.next-project){
+ transition:background-color .2s ease,color .2s ease,border-color .2s ease;
+}
+.case-editorial[data-project] .case-pdf-link{
+ padding:10px 16px;
+ border:1px solid var(--line);
+ color:var(--ink);
+}
+.case-editorial[data-project] .prototype-demo{
+ border-color:var(--line);
+ color:var(--ink);
+}
+.case-editorial[data-project] .research-archive>summary{padding-inline:14px}
+.case-editorial[data-project] :is(.chapter-nav a,.prototype-demo,.case-pdf-link,.research-archive>summary,.next-project):focus-visible{
+ background:var(--option-hover-bg);
+ color:var(--ink);
+ border-color:var(--accent);
+ outline:2px solid var(--ink);
+ outline-offset:4px;
+}
+@media(hover:hover){
+ .case-editorial[data-project] :is(.chapter-nav a,.prototype-demo,.case-pdf-link,.research-archive>summary,.next-project):hover{
+  background:var(--option-hover-bg);
+  color:var(--ink);
+  border-color:var(--accent);
+ }
+}
