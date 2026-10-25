@@ -40,14 +40,14 @@ const data:Record<Slug,{title:string;intro:Pair;facts:Pair[];hero:string;heroAlt
   ]}
 };
 export function FrameLead({slug,locale}:{slug:Slug;locale:Locale}) {
- const d=data[slug],zh=locale==='zh';
+ const d=data[slug],zh=locale==='zh'; if(!d) return null;
  return <section id="overview" className={'project-hero frame-lead frame-'+slug}><div className="frame-lead-layout"><div><h1 lang="en">{d.title}</h1><p className="frame-intro">{d.intro[locale]}</p><div className="frame-facts">{d.facts.map((f,i)=><p key={i}>{f[locale]}</p>)}
  {slug==='tacchat'&&<p><a href="https://dl.acm.org/doi/10.1145/3772363.3798574#artseq-00009" target="_blank" rel="noreferrer">https://dl.acm.org/doi/10.1145/3772363.3798574</a></p>}</div></div>
  <figure className="frame-lead-art">{slug==='tacchat'&&<img className="frame-lab" src="/projects/tacchat-frame91-lab-logo.jpg" alt={zh?'清华大学未来实验室标志':'The Future Laboratory, Tsinghua University'}/>}<img src={d.hero} alt={d.heroAlt[locale]}/></figure></div></section>;
 }
 export function FrameNarrative({slug,locale}:{slug:Slug;locale:Locale}) {
- const d=data[slug];
- return <div className={'frame-story frame-story-'+slug}>{d.blocks.map((b,i)=><section className={'frame-block '+(b.layout||'')} key={i}>
+ const d=data[slug]; if(!d) return null;
+ return <div className={'frame-story frame-'+slug}>{d.blocks.map((b,i)=><section className={'frame-block '+(b.layout||'')} key={i}>
   {b.text&&<div className="frame-copy">{b.text.map((p,j)=><p key={j}>{p[locale]}</p>)}</div>}
   {b.pics&&<div className="frame-gallery">{b.pics.map((p,j)=><Photo key={j} src={p.src} alt={p.alt[locale]}/>)}</div>}
  </section>)}<div className="frame-final-pdf"><a className="case-pdf-link" href={'/research/'+slug+'.pdf'} target="_blank" rel="noreferrer">{locale==='zh'?'查看完整项目 PDF':'View complete project PDF'} <span aria-hidden="true">↗</span></a></div></div>;
