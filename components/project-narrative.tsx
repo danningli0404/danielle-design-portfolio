@@ -114,13 +114,13 @@ function MediaGrid({items,locale}:{items:[string,string][];locale:Locale}) {
   <figcaption>{locale==='zh'?caption:file.replace(/\.webp$/,'').replaceAll('-',' ')}</figcaption>
  </figure>)}</div>;
 }
-function TacChatFigure({src,zh,en}:{src:string;zh:string;en:string}) {
-  const text=zh==='zh-CN'?zh:en;
+function TacChatFigure({src,zh,en,locale}:{src:string;zh:string;en:string;locale:Locale}) {
+  const text=locale==='zh'?zh:en;
   return <figure><img src={src} loading="lazy" alt={text}/><figcaption>{text}</figcaption></figure>;
 }
 type TacMedia = {src:string;zh:string;en:string};
-function TacChatGallery({items,variant}:{items:TacMedia[];variant:string}) {
-  return <div className={`tacchat-gallery ${variant}`}>{items.map(item=><TacChatFigure key={item.src} {...item}/>)}</div>;
+function TacChatGallery({items,variant,locale}:{items:TacMedia[];variant:string;locale:Locale}) {
+  return <div className={`tacchat-gallery ${variant}`}>{items.map(item=><TacChatFigure key={item.src} {...item} locale={locale}/>)}</div>;
 }
 export function TacChatLead({locale}:{locale:Locale}) {
   const zh=locale==='zh';
@@ -150,7 +150,7 @@ function TacChatNarrative({locale}:{locale:Locale}) {
         <blockquote>{zh?'“高铁的车头长什么样？”“到底什么是正方体的透视？”“我学了很多年音乐，但我还是不知道五线谱长什么样。”':'“What does the front of a high-speed train look like?” “What does perspective on a cube mean?” “I have studied music for years, but I still do not know what a musical staff looks like.”'}</blockquote>
         <p>{zh?'在盲人学校里，好多学生给我们提出这些疑问，而一时间我们不知道怎么用语言来回答。为了帮助盲人和低视力人群理解无法被触摸的三维物体，我们开发了触觉图形创作、修改与分享的服务设计系统。':'At a school for blind students, many students asked us these questions, and we could not answer them adequately with words alone. To help blind and low-vision people understand three-dimensional objects that cannot be touched, we developed a service-design system for creating, revising, and sharing tactile graphics.'}</p>
       </div>
-      <TacChatGallery variant="tacchat-gallery--pair" items={[
+      <TacChatGallery locale={locale} variant="tacchat-gallery--pair" items={[
         {src:'/projects/tacchat-p26-interview-photo.webp',zh:'盲人与低视力学生访谈',en:'Interview with blind and low-vision students'},
         {src:'/projects/tacchat-p26-participant-quotes.webp',zh:'参与者关于触觉创作与交流的反馈',en:'Participant reflections on tactile creation and exchange'}
       ]}/>
@@ -158,14 +158,14 @@ function TacChatNarrative({locale}:{locale:Locale}) {
     <section id="process" className="tacchat-chapter tacchat-workflow">
       <div className="tacchat-chapter-head"><span>02</span><h2>{zh?'触觉图形的三步工作流':'A three-stage tactile-graphics workflow'}</h2></div>
       <p className="tacchat-copy">{zh?'TacChat 将触觉创作、修改与分享连接成一套连续流程：用户绘制图形，在 RTD 触觉显示设备上检查和修改，再把图形传递给他人。':'TacChat connects tactile authoring, revision, and sharing in one continuous workflow: users draw a graphic, review and revise it on an RTD tactile display, then share it with others.'}</p>
-      <TacChatGallery variant="tacchat-gallery--workflow" items={[
+      <TacChatGallery locale={locale} variant="tacchat-gallery--workflow" items={[
         {src:'/projects/tacchat-p26-workflow-overview.webp',zh:'触觉图形创作、转换与分享的工作流程',en:'Workflow for authoring, converting, and sharing tactile graphics'}
       ]}/>
     </section>
     <section id="use" className="tacchat-chapter tacchat-use">
       <div className="tacchat-chapter-head"><span>03</span><h2>{zh?'从绘制到共享':'From drawing to sharing'}</h2></div>
       <p className="tacchat-copy">{zh?'用户通过 3D 打印笔进行绘画，将图形上传至平台，再传输到触觉图形显示器中。这样，其他盲人和低视力人群也可以触摸到这些图像；那些难以用语言描述的内容，因而能够被分享。':'Users draw with a 3D-printing pen, upload their graphics to the platform, and send them to a tactile-graphics display. Other blind and low-vision people can then feel the images, making content that is difficult to describe in words shareable.'}</p>
-      <TacChatGallery variant="tacchat-gallery--use" items={[
+      <TacChatGallery locale={locale} variant="tacchat-gallery--use" items={[
         {src:'/projects/tacchat-p26-tactile-authoring-test.webp',zh:'参与者使用触觉图形系统进行创作',en:'A participant creates with the tactile-graphics system'},
         {src:'/projects/tacchat-p26-physical-system.webp',zh:'3D 打印笔与 RTD 触觉显示设备',en:'3D-printing pen and RTD tactile-graphics display'}
       ]}/>
@@ -176,7 +176,7 @@ function TacChatNarrative({locale}:{locale:Locale}) {
         <p>{zh?'在用户实验中，使用 TacChat 触觉图形传播系统的组别，实验完成速度高于对照组 25%，准确率高于对照组 20%，决策时间比对照组少 3.3%。':'In the user study, the group using TacChat’s tactile-graphics sharing system completed the experiment 25% faster, with 20% higher accuracy, and decision time 3.3% lower than the control group.'}</p>
         <p>{zh?'参与者认为该平台吸引人、易于使用，并且有助于触觉内容的创作和分享。':'Participants found the platform engaging and easy to use, and felt that it supported tactile-content creation and sharing.'}</p>
       </div>
-      <TacChatGallery variant="tacchat-gallery--results" items={[
+      <TacChatGallery locale={locale} variant="tacchat-gallery--results" items={[
         {src:'/projects/tacchat-p26-performance-results.webp',zh:'用户实验任务表现数据',en:'Performance data from the user-study tasks'},
         {src:'/projects/tacchat-p26-ueqs-results.webp',zh:'UEQ-S 用户体验评价结果',en:'UEQ-S user-experience results'}
       ]}/>
@@ -184,7 +184,7 @@ function TacChatNarrative({locale}:{locale:Locale}) {
     <section className="tacchat-chapter tacchat-exhibition">
       <div className="tacchat-chapter-head"><span>05</span><h2>{zh?'联合国无障碍展览':'Accessibility exhibition at the United Nations'}</h2></div>
       <p className="tacchat-copy">{zh?'TacChat 服务系统于 2025 年 6 月 16–21 日在联合国日内瓦办事处的“人人享有无障碍环境：共建包容性未来”无障碍展览中展出。':'The TacChat service system was exhibited at “Accessibility for All: Building an Inclusive Future,” held at the United Nations Office at Geneva, June 16–21, 2025.'}</p>
-      <TacChatGallery variant="tacchat-gallery--exhibition" items={[
+      <TacChatGallery locale={locale} variant="tacchat-gallery--exhibition" items={[
         {src:'/projects/tacchat-p26-physical-system.webp',zh:'展出的 RTD 触觉图形设备',en:'RTD tactile-graphics device shown at the exhibition'}
       ]}/>
     </section>
