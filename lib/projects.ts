@@ -43,7 +43,7 @@ const projectRecords: Project[] = [
   {
     slug: 'tacchat', title: 'TacChat', kicker: 'Tactile authoring and sharing with BLV creators', year: '2025',
     role: 'Team project · Second author', disciplines: ['Accessibility research', 'Experiment design', 'Data analysis', 'System workflow'], hero: '/projects/tacchat.jpg', process: '/projects/tacchat-process.jpg', accent: '#f0c8a7',
-    summary: 'A research system that supports blind and low-vision users in authoring, converting, modifying, and sharing tactile graphics instead of remaining passive recipients.',
+    summary: 'We built a service-design system that supports blind and low-vision people in creating, digitizing, revising, and sharing tactile graphics—making images that are difficult to describe in words easier to communicate.',
     challenge: 'Refreshable tactile graphics often focus on access to information, but far less attention is given to BLV users as creators and communicators of tactile content.',
     approach: 'My contributions included system-workflow design, experimental design and coordination, data analysis, and paper writing. The team evaluated route-navigation and toy-recognition tasks and used UEQ-S to record participant experience.',
     outcome: 'TacChat connects tactile authoring, conversion, revision, and sharing in a complete workflow, evaluated through route-navigation and toy-recognition tasks.',

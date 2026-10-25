@@ -204,3 +204,66 @@
   border-color:var(--accent);
  }
 }
+
+
+/* TacChat case study follows the provided long-page storyboard. */
+.case-editorial[data-project="tacchat"]{--paper:#f4eee4;--ink:#211f1c;--muted:#5e594f;--accent:#a47855;--surface:#ece3d7;--accent-soft:#e8ddcf;--line:#57493636}
+.case-editorial[data-project="tacchat"] .case-masthead{background:var(--paper)}
+.case-editorial[data-project="tacchat"] .case-masthead::after{background:linear-gradient(100deg,#f4eee4f5 0%,#f4eee4e8 65%,#f4eee4bf 100%)}
+.case-editorial[data-project="tacchat"] .chapter-nav,.case-editorial[data-project="tacchat"]>.next-project{display:none}
+.case-editorial[data-project="tacchat"] .project-hero.tacchat-hero{display:block;min-height:0;margin:0;padding:55px 8.5% 76px}
+.tacchat-hero>.eyebrow{margin:0 0 28px!important;color:var(--accent)!important;font-size:11px!important;letter-spacing:.13em!important}
+.tacchat-hero-layout{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(220px,.55fr);gap:clamp(36px,7vw,110px);align-items:center}
+.tacchat-hero-copy h1{font:400 clamp(74px,10vw,132px)/.82 var(--font-serif)!important;letter-spacing:-.055em!important;margin:0 0 30px!important}
+.tacchat-hero-copy .project-summary{max-width:760px;font:300 clamp(19px,2.2vw,26px)/1.8 'Songti SC','STSong',serif!important;color:var(--ink)!important}
+.case-editorial[lang=en] .tacchat-hero-copy .project-summary{font:400 clamp(21px,2.4vw,30px)/1.55 var(--font-serif)!important}
+.tacchat-hero-facts{display:grid;gap:9px;margin-top:30px;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tacchat-hero-facts p{margin:0;color:var(--muted);font-size:13px;line-height:1.9}
+.tacchat-doi-link{display:inline-block;margin-top:14px;padding-bottom:5px;border-bottom:1px solid var(--accent);color:var(--ink);font-size:12px;line-height:1.8}
+.tacchat-doi-link:hover{color:var(--accent)}
+.tacchat-hero-figure{margin:0;display:flex;min-height:250px;align-items:center;justify-content:center;flex-direction:column}
+.tacchat-hero-figure img{display:block;width:min(100%,340px);height:auto;max-height:310px;object-fit:contain}
+.tacchat-hero-figure figcaption{margin-top:14px;color:var(--muted);font-size:11px;letter-spacing:.05em}
+.tacchat-chapter{max-width:1280px;margin:0 auto;padding:clamp(52px,7vw,96px) 8.5%;border-top:1px solid var(--line)}
+.tacchat-chapter-head{display:grid;grid-template-columns:72px minmax(0,1fr);gap:20px;align-items:start;margin-bottom:24px}
+.tacchat-chapter-head>span{padding-top:11px;color:var(--accent);font:italic 16px/1 var(--font-serif)}
+.tacchat-chapter-head h2{margin:0;color:var(--ink);font:400 clamp(35px,4.4vw,58px)/1.16 var(--font-serif);letter-spacing:-.025em}
+.case-editorial[lang=zh-CN] .tacchat-chapter-head h2{font:300 clamp(28px,3.5vw,43px)/1.55 'Songti SC','STSong',serif;letter-spacing:0}
+.tacchat-copy{max-width:790px;margin:0 0 24px 92px;color:var(--muted);font-size:clamp(15px,1.25vw,17px);line-height:2}
+.tacchat-copy p{margin:0 0 18px}
+.tacchat-question blockquote{max-width:900px;margin:10px 0 25px 92px;padding:0 0 0 24px;border-left:2px solid var(--accent);color:var(--ink);font:400 clamp(22px,2.7vw,34px)/1.6 var(--font-serif)}
+.case-editorial[lang=zh-CN] .tacchat-question blockquote{font-family:'Songti SC','STSong',serif;font-weight:300}
+.tacchat-gallery{display:grid;gap:clamp(18px,2.5vw,34px);margin:34px 0 0 92px}
+.tacchat-gallery--pair,.tacchat-gallery--results{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tacchat-gallery--workflow{grid-template-columns:minmax(0,1fr)}
+.tacchat-gallery--use{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tacchat-gallery--exhibition{grid-template-columns:minmax(0,1fr)}
+.tacchat-gallery figure{min-width:0;margin:0;padding:clamp(10px,1.6vw,22px);background:var(--surface)}
+.tacchat-gallery img{display:block;width:100%;height:auto;max-height:min(68vh,720px);object-fit:contain}
+.tacchat-gallery--workflow figure{padding:clamp(14px,2.5vw,34px)}
+.tacchat-gallery--workflow img{max-height:none}
+.tacchat-gallery--exhibition figure{max-width:900px}
+.tacchat-gallery figcaption{margin-top:12px;color:var(--muted);font-size:11px;line-height:1.65}
+.tacchat-final-pdf{margin:0;padding:40px 8.5% 88px;border-top:1px solid var(--line)}
+.case-editorial[data-project="tacchat"] .tacchat-final-pdf .case-pdf-link{margin:0;padding:15px 19px;border:1px solid var(--accent);color:var(--ink);font-size:14px}
+.case-editorial[data-project="tacchat"] .tacchat-final-pdf .case-pdf-link:hover{background:var(--accent-soft)}
+@media(max-width:780px){
+ .case-editorial[data-project="tacchat"] .project-hero.tacchat-hero{padding:40px 7% 52px}
+ .tacchat-hero-layout{grid-template-columns:1fr;gap:24px}
+ .tacchat-hero-copy h1{font-size:clamp(64px,14vw,96px)!important}
+ .tacchat-hero-figure{min-height:0;max-height:240px;align-items:flex-start}
+ .tacchat-hero-figure img{width:min(70%,300px);max-height:210px;object-position:left}
+ .tacchat-chapter{padding:44px 7% 50px}
+ .tacchat-chapter-head{grid-template-columns:42px 1fr;gap:12px}
+ .tacchat-chapter-head h2{font-size:33px}
+ .case-editorial[lang=zh-CN] .tacchat-chapter-head h2{font-size:27px}
+ .tacchat-copy,.tacchat-question blockquote,.tacchat-gallery{margin-left:54px}
+ .tacchat-gallery--pair,.tacchat-gallery--results,.tacchat-gallery--use{grid-template-columns:1fr}
+ .tacchat-final-pdf{padding:30px 7% 54px}
+}
+@media(max-width:480px){
+ .tacchat-chapter-head{grid-template-columns:1fr;gap:8px}
+ .tacchat-chapter-head>span{padding:0}
+ .tacchat-copy,.tacchat-question blockquote,.tacchat-gallery{margin-left:0}
+ .tacchat-question blockquote{padding-left:16px}
+}

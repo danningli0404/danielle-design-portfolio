@@ -10,6 +10,7 @@ import { localizeProject } from '@/lib/projects-zh';
 import { evidence } from '@/lib/project-evidence';
 import { ProjectContext, ProjectDecisions, ProjectValidation, ResearchArchive } from '@/components/project-evidence';
 import { ProjectNarrative } from '@/components/project-narrative';
+import { TacChatLead } from '@/components/project-narrative';
 
 type PageProps = { params: Promise<{ slug: string }>; searchParams: Promise<SearchParams> };
 
@@ -36,12 +37,12 @@ export default async function ProjectPage({ params, searchParams }: PageProps) {
   return (
     <main data-project={slug} className={`project-page case-editorial${project.experimental ? ' summer-case' : ''}`} lang={locale === 'zh' ? 'zh-CN' : 'en'}>
       <EditorialCursor /><div className="case-masthead"><header className="project-nav"><a href={href('/#work')}><ArrowLeft size={14} /> {t.collection}</a><span>Danning Li · 李丹宁</span><div className="project-nav-actions"><a className="case-contact" href="mailto:danning_li@brown.edu">{locale === 'zh' ? '联系' : 'Contact'}</a><LanguageSwitch locale={locale} path={`/project/${slug}`} /></div></header>
-      <section id="overview" className="project-hero">
+      {slug === 'tacchat' ? <TacChatLead locale={locale} /> : <section id="overview" className="project-hero">
         <p className="eyebrow">{project.kicker}</p><h1 lang="en">{project.title}</h1><p className="project-summary">{project.summary}</p>
         <div className="project-facts"><p><strong>{record ? (locale === 'zh' ? '项目时间' : 'Timeline') : t.year}</strong>{record?.period ?? project.year}</p><p><strong>{t.role}</strong>{project.role}</p><p><strong>{t.areas}</strong>{project.disciplines.join(' · ')}</p></div>
-      </section>
+      </section>}
       </div>
-      {record && <ProjectContext record={record} locale={locale} pdfSlug={["sense-together","vitalride","purelink","color-showdown","tacchat"].includes(slug) ? slug : undefined} pdfUrl={slug === 'cocokeep' ? 'https://danningli0404.github.io/danielle-design-portfolio/research/cococarry.pdf' : undefined} />}
+      {record && slug !== 'tacchat' && <ProjectContext record={record} locale={locale} pdfSlug={["sense-together","vitalride","purelink","color-showdown","tacchat"].includes(slug) ? slug : undefined} pdfUrl={slug === 'cocokeep' ? 'https://danningli0404.github.io/danielle-design-portfolio/research/cococarry.pdf' : undefined} />}
       <nav className="chapter-nav" aria-label={t.chapters}><a href="#question">{t.question}</a><a href="#process">{t.process}</a><a href="#reflection">{project.experimental ? t.progress : t.outcome}</a><span>{project.experimental ? t.notes : t.caseStudy} / {project.year}</span></nav>
       {['sense-together', 'vitalride', 'purelink', 'color-showdown', 'tacchat'].includes(slug) ? <ProjectNarrative slug={slug} locale={locale} project={project} /> : <>
       <section id="question" className="case-grid">
