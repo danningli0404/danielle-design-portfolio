@@ -185,7 +185,8 @@ function TacChatNarrative({locale}:{locale:Locale}) {
       <div className="tacchat-chapter-head"><span>05</span><h2>{zh?'联合国无障碍展览':'Accessibility exhibition at the United Nations'}</h2></div>
       <p className="tacchat-copy">{zh?'TacChat 服务系统于 2025 年 6 月 16–21 日在联合国日内瓦办事处的“人人享有无障碍环境：共建包容性未来”无障碍展览中展出。':'The TacChat service system was exhibited at “Accessibility for All: Building an Inclusive Future,” held at the United Nations Office at Geneva, June 16–21, 2025.'}</p>
       <TacChatGallery locale={locale} variant="tacchat-gallery--exhibition" items={[
-        {src:'/projects/tacchat-p26-physical-system.webp',zh:'展出的 RTD 触觉图形设备',en:'RTD tactile-graphics device shown at the exhibition'}
+        {src:'/projects/tacchat-un-exhibition-group.jpg',zh:'联合国日内瓦办事处无障碍展览团队合影',en:'Team at the UN Geneva accessibility exhibition'},
+        {src:'/projects/tacchat-un-exhibition-demo.jpg',zh:'RTD 触觉图形设备在展览现场演示',en:'RTD tactile-graphics device demonstrated at the exhibition'}
       ]}/>
     </section>
     <div className="tacchat-final-pdf"><a className="case-pdf-link" href="/research/tacchat.pdf" target="_blank" rel="noreferrer">{zh?'查看完整项目 PDF':'View complete project PDF'} <span aria-hidden="true">↗</span></a></div>

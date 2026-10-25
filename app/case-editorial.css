@@ -237,12 +237,12 @@
 .tacchat-gallery--pair,.tacchat-gallery--results{grid-template-columns:repeat(2,minmax(0,1fr))}
 .tacchat-gallery--workflow{grid-template-columns:minmax(0,1fr)}
 .tacchat-gallery--use{grid-template-columns:repeat(2,minmax(0,1fr))}
-.tacchat-gallery--exhibition{grid-template-columns:minmax(0,1fr)}
+.tacchat-gallery--exhibition{grid-template-columns:repeat(2,minmax(0,1fr))}
 .tacchat-gallery figure{min-width:0;margin:0;padding:clamp(10px,1.6vw,22px);background:var(--surface)}
 .tacchat-gallery img{display:block;width:100%;height:auto;max-height:min(68vh,720px);object-fit:contain}
 .tacchat-gallery--workflow figure{padding:clamp(14px,2.5vw,34px)}
 .tacchat-gallery--workflow img{max-height:none}
-.tacchat-gallery--exhibition figure{max-width:900px}
+.tacchat-gallery--exhibition figure{max-width:none}
 .tacchat-gallery figcaption{margin-top:12px;color:var(--muted);font-size:11px;line-height:1.65}
 .tacchat-final-pdf{margin:0;padding:40px 8.5% 88px;border-top:1px solid var(--line)}
 .case-editorial[data-project="tacchat"] .tacchat-final-pdf .case-pdf-link{margin:0;padding:15px 19px;border:1px solid var(--accent);color:var(--ink);font-size:14px}
@@ -258,7 +258,7 @@
  .tacchat-chapter-head h2{font-size:33px}
  .case-editorial[lang=zh-CN] .tacchat-chapter-head h2{font-size:27px}
  .tacchat-copy,.tacchat-question blockquote,.tacchat-gallery{margin-left:54px}
- .tacchat-gallery--pair,.tacchat-gallery--results,.tacchat-gallery--use{grid-template-columns:1fr}
+ .tacchat-gallery--pair,.tacchat-gallery--results,.tacchat-gallery--use,.tacchat-gallery--exhibition{grid-template-columns:1fr}
  .tacchat-final-pdf{padding:30px 7% 54px}
 }
 @media(max-width:480px){
