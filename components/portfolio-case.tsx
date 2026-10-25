@@ -10,7 +10,7 @@ import { localizeProject } from '@/lib/projects-zh';
 import { evidence } from '@/lib/project-evidence';
 import { ProjectContext, ProjectDecisions, ProjectValidation, ResearchArchive } from '@/components/project-evidence';
 import { ProjectNarrative } from '@/components/project-narrative';
-import { TacChatLead } from '@/components/project-narrative';
+import { FrameLead } from '@/components/frame-projects';
 
 type PageProps = { params: Promise<{ slug: string }>; searchParams: Promise<SearchParams> };
 
@@ -37,13 +37,13 @@ export default async function ProjectPage({ params, searchParams }: PageProps) {
   return (
     <main data-project={slug} className={`project-page case-editorial${project.experimental ? ' summer-case' : ''}`} lang={locale === 'zh' ? 'zh-CN' : 'en'}>
       <EditorialCursor /><div className="case-masthead"><header className="project-nav"><a href={href('/#work')}><ArrowLeft size={14} /> {t.collection}</a><span>Danning Li · 李丹宁</span><div className="project-nav-actions"><a className="case-contact" href="mailto:danning_li@brown.edu">{locale === 'zh' ? '联系' : 'Contact'}</a><LanguageSwitch locale={locale} path={`/project/${slug}`} /></div></header>
-      {slug === 'tacchat' ? <TacChatLead locale={locale} /> : <section id="overview" className="project-hero">
+      {['tacchat','vitalride','sense-together'].includes(slug) ? <FrameLead slug={slug as 'tacchat'|'vitalride'|'sense-together'} locale={locale} /> : <section id="overview" className="project-hero">
         <p className="eyebrow">{project.kicker}</p><h1 lang="en">{project.title}</h1><p className="project-summary">{project.summary}</p>
         <div className="project-facts"><p><strong>{record ? (locale === 'zh' ? '项目时间' : 'Timeline') : t.year}</strong>{record?.period ?? project.year}</p><p><strong>{t.role}</strong>{project.role}</p><p><strong>{t.areas}</strong>{project.disciplines.join(' · ')}</p></div>
       </section>}
       </div>
-      {record && slug !== 'tacchat' && <ProjectContext record={record} locale={locale} pdfSlug={["sense-together","vitalride","purelink","color-showdown","tacchat"].includes(slug) ? slug : undefined} pdfUrl={slug === 'cocokeep' ? 'https://danningli0404.github.io/danielle-design-portfolio/research/cococarry.pdf' : undefined} />}
-      <nav className="chapter-nav" aria-label={t.chapters}><a href="#question">{t.question}</a><a href="#process">{t.process}</a><a href="#reflection">{project.experimental ? t.progress : t.outcome}</a><span>{project.experimental ? t.notes : t.caseStudy} / {project.year}</span></nav>
+      {record && !['tacchat','vitalride','sense-together'].includes(slug) && <ProjectContext record={record} locale={locale} pdfSlug={["sense-together","vitalride","purelink","color-showdown","tacchat"].includes(slug) ? slug : undefined} pdfUrl={slug === 'cocokeep' ? 'https://danningli0404.github.io/danielle-design-portfolio/research/cococarry.pdf' : undefined} />}
+      {!["tacchat","vitalride","sense-together"].includes(slug) && <nav className="chapter-nav" aria-label={t.chapters}><a href="#question">{t.question}</a><a href="#process">{t.process}</a><a href="#reflection">{project.experimental ? t.progress : t.outcome}</a><span>{project.experimental ? t.notes : t.caseStudy} / {project.year}</span></nav>}
       {['sense-together', 'vitalride', 'purelink', 'color-showdown', 'tacchat'].includes(slug) ? <ProjectNarrative slug={slug} locale={locale} project={project} /> : <>
       <section id="question" className="case-grid">
         <span className="case-no">01 — {t.question}</span><div><h2>{t.questionTitle}<br /><em>{t.questionEm}</em></h2><p>{project.challenge}</p></div>
@@ -58,7 +58,7 @@ export default async function ProjectPage({ params, searchParams }: PageProps) {
       </section>
       <section id="reflection" className="outcome-block"><p className="eyebrow">03 — {project.experimental ? t.progressTitle : t.outcomeTitle}</p><h2>{project.outcome}</h2>{record ? <ProjectValidation record={record} locale={locale} /> : project.note && <p className="honesty-note"><strong>{t.noteTitle}</strong>{project.note}</p>}</section>
       </>}
-      <a className="next-project" href={href(`/project/${next.slug}`)}><span>{t.next}</span><strong lang="en">{next.title}</strong><ArrowUpRight /></a>
+      {!["tacchat","vitalride","sense-together"].includes(slug) && <a className="next-project" href={href(`/project/${next.slug}`)}><span>{t.next}</span><strong lang="en">{next.title}</strong><ArrowUpRight /></a>}
     </main>
   );
 }
