@@ -1,5 +1,5 @@
 import type { Locale } from '@/lib/i18n';
-type Slug='tacchat'|'vitalride'|'sense-together';
+type Slug='tacchat'|'vitalride'|'sense-together'|'purelink';
 type Pair={zh:string;en:string};
 type Pic={src:string;alt:Pair};
 type Block={text?:Pair[];pics?:Pic[];layout?:string};
@@ -37,6 +37,19 @@ const data:Record<Slug,{title:string;intro:Pair;facts:Pair[];hero:string;heroAlt
    {text:[pair('因此我设计了一个服务系统，用可穿戴设备和app进行配合，让不同的无障碍人群都能够得到痛点的解决方案。','I designed a service system combining wearables and an app to address the needs of people with different accessibility needs.')],pics:[{src:'/projects/sense-together-frame92-service-flow.jpg',alt:pair('音乐节无障碍服务系统图','Accessible festival service system diagram')}],layout:'frame-opening'},
    {text:[pair('针对听障人士，我为他们设计了能实时显示语音转文字的AR眼镜和根据现场声音节奏产生振动的手环。','For Deaf and hard-of-hearing people, I designed AR glasses that show live speech-to-text and a wristband that vibrates with the rhythm of live sound.'),pair('针对视障人士，我为他们设计了专用观场地，拥有护栏保护。','For blind people, I designed a dedicated viewing area with protective railings.')],pics:[{src:'/projects/sense-together-frame92-interface-system.jpg',alt:pair('AR眼镜、手环与音乐节应用界面','AR glasses, wristband, and festival app interfaces')}],layout:'frame-opening'},
    {text:[pair('经过用户测试和反馈，Sense Together这套系统能够给视障人士更多的安全感，而听障人士也反馈实时语音转文字能够显著提高他们的音乐节参与感。','After user testing and feedback, the Sense Together system gave blind people greater confidence in their safety. Deaf and hard-of-hearing people reported that real-time speech-to-text could significantly improve their participation in the festival.')],layout:'frame-ending'}
+  ]},
+ purelink:{
+  title:'PureLink',intro:pair('我为北京地区水质较硬的区域设计了一款净水装置，通过物理和化学方法多重过滤，实现净水质软化，促进居民的身体安全，缓解物业、水厂等多方利益相关者的压力。','I designed a water purifier for areas in Beijing with hard water. Multiple physical and chemical filtration methods soften the water, support residents’ health, and ease pressure on property managers, water utilities, and other stakeholders.'),
+  facts:[pair('个人项目','Personal project'),pair('2025年08月～11月','August–November 2025'),pair('材料实验；产品设计；UI设计；服务蓝图；用户研究','Material exploration; product design; UI design; service blueprint; user research'),pair('Arduino；Arduino IDE；原点小组；文化探针；Figma；','Arduino; Arduino IDE; Origin Group; cultural probes; Figma;')],
+  hero:'/projects/purelink-frame94-hero-purifier.jpg',heroAlt:pair('PureLink净水产品','PureLink water purifier'),
+  blocks:[
+   {text:[pair('暴雨过后北京部分地区居民家里出现水质变黄变浑浊的现象，而部分居民长期反复水质偏硬，导致其脱发、皮肤长痘等问题。而自来水的问题无法靠居民一己之力解决，政府、物业、自来水厂等多方需要协调配合才能使改善现状。','After heavy rain, some Beijing residents found their tap water yellow and cloudy. Others experienced persistently hard water, which they associated with hair loss and skin problems. Residents cannot resolve water-supply issues alone; government, property managers, and water utilities need to coordinate.')],pics:[{src:'/projects/purelink-frame94-water-samples.jpg',alt:pair('居民记录的水质与水样','Water samples and records from residents')}],layout:'frame-opening'},
+   {text:[pair('我根据三手调研绘制了利益相关者地图，将主要相关人员组织焦点访谈小组和共创设计活动，共同探讨可能的解决方案。','Based on secondary research, I mapped stakeholders and organized focus-group interviews and co-design activities with key participants to explore possible solutions.')],pics:[{src:'/projects/purelink-frame94-stakeholders.jpg',alt:pair('利益相关者地图','Stakeholder map')},{src:'/projects/purelink-frame94-interviews.jpg',alt:pair('居民与物业访谈及共创活动','Resident and property-manager interviews and co-design')}],layout:'frame-opening'},
+   {text:[pair('通过文化探针，我将工具包（包含水质检测笔、拍摄相机、笔记本、便利贴、笔等）发给三位居民和两位物业管理人员，收集多方的意见。','Through cultural probes, I gave toolkits—including water-testing pens, cameras, notebooks, sticky notes, and pens—to three residents and two property managers to gather perspectives.')],pics:[{src:'/projects/purelink-frame94-probes.jpg',alt:pair('文化探针工具包及使用记录','Cultural probe kit and participant records')}],layout:'frame-opening'},
+   {text:[pair('物业：很多污染来源于管道，这是很难排查的。','Property manager: “Many sources of contamination come from pipes, which are difficult to investigate.”'),pair('居民：我家水质浑浊的时候不知道是该找自来水厂还是物业处理，谁都没法直接解决我的问题。','Resident: “When my water is cloudy, I don’t know whether to contact the water utility or the property manager. Neither can directly solve my problem.”'),pair('根据调研结果我制作了系统地图，并且明确了各方的权责边界。','Based on the research, I created a system map and clarified the responsibilities and boundaries of each party.')],pics:[{src:'/projects/purelink-frame94-stakeholder-map.jpg',alt:pair('政府、自来水厂、物业与居民的系统关系图','System map connecting government, water utility, property managers, and residents')}],layout:'frame-opening'},
+   {text:[pair('我设计了供政府采购、物业上门安装给居民的净水产品，并且设计了信息在多方之间流通的app。','I designed a purifier for government procurement and installation by property managers in residents’ homes, alongside an app that allows information to flow among stakeholders.')],pics:[{src:'/projects/purelink-frame94-app-screens.jpg',alt:pair('PureLink应用界面','PureLink app interfaces')},{src:'/projects/purelink-frame94-product-exploded.jpg',alt:pair('净水器产品结构与净水原理','Purifier structure and filtration process')}],layout:'frame-full'},
+   {text:[pair('净水原理：利用五种不同的净水方法分别净化其中多种污染物。并且使用水质检测传感器测量水质结果。','Water purification: five different methods address multiple contaminants. Water-quality sensors measure the resulting water.'),pair('传感器的工作原理：以紫外线灯、TDS传感器和浑浊度传感器为例，通过Arduino连接成为一个净化系统。','Sensor operation: an ultraviolet lamp, TDS sensor, and turbidity sensor are connected through Arduino as part of the purification system.')],pics:[{src:'/projects/purelink-frame94-sensors-code.jpg',alt:pair('Arduino、传感器和净水系统测试','Arduino, sensors, and purifier system test')}],layout:'frame-opening'},
+   {text:[pair('净水结果测试：使用我们的净水产品后，水的污染指标显著下降。','Water-purification test: after using the purifier, measured water-contamination indicators decreased significantly.')],pics:[{src:'/projects/purelink-frame94-water-test.jpg',alt:pair('净水前后测试记录','Before-and-after water-purification test records')}],layout:'frame-ending'}
   ]}
 };
 export function FrameLead({slug,locale}:{slug:Slug;locale:Locale}) {
@@ -49,6 +62,7 @@ export function FrameNarrative({slug,locale}:{slug:Slug;locale:Locale}) {
  const d=data[slug]; if(!d) return null;
  return <div className={'frame-story frame-'+slug}>{d.blocks.map((b,i)=><section className={'frame-block '+(b.layout||'')} key={i}>
   {b.text&&<div className="frame-copy">{b.text.map((p,j)=><p key={j}>{p[locale]}</p>)}</div>}
-  {b.pics&&<div className="frame-gallery">{b.pics.map((p,j)=><Photo key={j} src={p.src} alt={p.alt[locale]}/>)}</div>}
+  {b.pics&&<div className="frame-gallery">{b.pics.map((p,j)=><figure key={j}><img src={p.src} alt={p.alt[locale]}/></figure>)}</div>}
  </section>)}<div className="frame-final-pdf"><a className="case-pdf-link" href={'/research/'+slug+'.pdf'} target="_blank" rel="noreferrer">{locale==='zh'?'查看完整项目 PDF':'View complete project PDF'} <span aria-hidden="true">↗</span></a></div></div>;
 }
+

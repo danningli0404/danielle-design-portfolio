@@ -195,7 +195,7 @@ function TacChatNarrative({locale}:{locale:Locale}) {
 }
 
 export function ProjectNarrative({ slug, locale, project }: { slug: string; locale: Locale; project: { challenge: string; outcome: string } }) {
- if(['tacchat','vitalride','sense-together'].includes(slug)) return <FrameNarrative slug={slug as 'tacchat'|'vitalride'|'sense-together'} locale={locale}/>;
+ if(['tacchat','vitalride','sense-together','purelink'].includes(slug)) return <FrameNarrative slug={slug as 'tacchat'|'vitalride'|'sense-together'|'purelink'} locale={locale}/>;
  const story=stories[slug], record=evidence[slug], labels=sectionLabels[slug], images=media[slug];
  if(!story||!record||!labels||!images)return null;
  if(slug==='tacchat') return <TacChatNarrative locale={locale}/>;
@@ -218,3 +218,4 @@ export function ProjectNarrative({ slug, locale, project }: { slug: string; loca
    </section>}
  </>;
 }
+
